@@ -16,7 +16,10 @@ test('GET /health should return HTTP 200 and healthy status', async () => {
     const data = await response.json();
 
     assert.equal(response.status, 200);
-    assert.equal(data.status, 'OK');
+
+    // Intentionally incorrect expectation to demonstrate CI failure
+    assert.equal(data.status, 'FAILED');
+
     assert.equal(
       data.message,
       'Task Manager API is running'
@@ -33,3 +36,4 @@ test('GET /health should return HTTP 200 and healthy status', async () => {
     });
   }
 });
+
